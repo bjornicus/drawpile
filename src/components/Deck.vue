@@ -2,7 +2,7 @@
   <div>
     <transition-group name="cards" tag="div">
       <v-touch v-on:swiperight="discard(topCard.id)" class="card" :key="topCard.id">{{ topCard.msg }}</v-touch>
-      <v-touch v-on:swiperight="discard(card.id)" class="card" v-for="card in remaingCards" :key="card.id">
+      <v-touch v-on:swiperight="discard(card.id)" class="card" v-for="card in futureCards" :key="card.id">
         {{ card.msg }}
       </v-touch>
     </transition-group>
@@ -49,6 +49,9 @@ export default {
     },
     topCard() {
       return this.remaingCards[0];
+    },
+    futureCards() {
+      return this.remaingCards.slice(1);
     }
   },
   methods: {
