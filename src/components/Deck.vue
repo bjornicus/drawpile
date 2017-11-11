@@ -1,11 +1,11 @@
 <template>
   <div>
-    <transition-group name="cards" tag="ul">
-      <li v-for="card in cards" :key="card.id">
+    <transition-group name="cards" tag="div">
+      <div class="card" v-for="card in cards" :key="card.id">
         {{ card.msg }}
-      </li>
+      </div>
     </transition-group>
-    <button @click="shuffle">Shuffle</button>
+    <button class="shuffle-button" @click="shuffle">Shuffle</button>
   </div>
 </template>
 
@@ -52,7 +52,21 @@ export default {
 </script>
 
 <style>
+.shuffle-button {
+  position: fixed;
+  bottom: 5px;
+  left: 25vw;
+  background: lightseagreen;
+  width: 50vw;
+  font-size: 3rem;
+}
 .cards-move {
   transition: transform 1s;
+}
+.card {
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
 }
 </style>
