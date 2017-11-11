@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js PWA</span>
+      <span>Draw Pile</span>
     </header>
     <main>
       <deck></deck>
