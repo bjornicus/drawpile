@@ -1,6 +1,7 @@
 <template>
   <div>
     <transition-group name="cards" tag="div">
+      <v-touch v-on:swiperight="discard(topCard.id)" class="card" :key="topCard.id">{{ topCard.msg }}</v-touch>
       <v-touch v-on:swiperight="discard(card.id)" class="card" v-for="card in remaingCards" :key="card.id">
         {{ card.msg }}
       </v-touch>
@@ -45,6 +46,9 @@ export default {
   computed: {
     remaingCards() {
       return this.cards.filter(c => !this.discarded.includes(c.id));
+    },
+    topCard() {
+      return this.remaingCards[0];
     }
   },
   methods: {
@@ -55,11 +59,7 @@ export default {
       this.cards = shuffle(this.cards);
     },
     discard: function(id) {
-      console.log(id);
       this.discarded.push(id);
-    },
-    reset: function() {
-      this.discarded = [];
     }
   }
 };
