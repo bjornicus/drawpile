@@ -1,10 +1,10 @@
 <template>
   <div>
-    <ul>
+    <transition-group name="cards" tag="ul">
       <li v-for="card in cards" :key="card.id">
         {{ card.msg }}
       </li>
-    </ul>
+    </transition-group>
     <button @click="shuffle">Shuffle</button>
   </div>
 </template>
@@ -52,5 +52,7 @@ export default {
 </script>
 
 <style>
-
+.cards-move {
+  transition: transform 1s;
+}
 </style>
