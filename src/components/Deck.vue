@@ -1,10 +1,14 @@
 <template>
   <div>
     <transition-group name="cards" tag="div">
-      <v-touch v-on:swiperight="discard(topCard.id)" class="card" :key="topCard.id">{{ topCard.msg }}</v-touch>
-      <v-touch v-on:swiperight="discard(card.id)" class="card" v-for="card in futureCards" :key="card.id">
-        {{ card.msg }}
-      </v-touch>
+      <div class="stack-offset" v-for="(card, index) in futureCards" :key="card.id">
+        <div class="card stacked">
+          {{ card.msg }}
+        </div>
+      </div>
+      <div class="stack-offset" :key="topCard.id">
+        <v-touch v-on:swiperight="discard(topCard.id)" class="card stacked" :key="topCard.id">{{ topCard.msg }}</v-touch>
+      </div>
     </transition-group>
     <button class="shuffle-button" @click="shuffle">Shuffle</button>
   </div>
@@ -85,5 +89,14 @@ export default {
   border: 1px solid black;
   border-radius: 5px;
   margin: 5px;
+  background: wheat;
+}
+
+.stack-offset {
+  height: 3px;
+}
+
+.stacked {
+  position: relative;
 }
 </style>
