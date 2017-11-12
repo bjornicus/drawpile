@@ -7,6 +7,7 @@
         </div>
     </transition-group>
     <button class="shuffle-button" @click="shuffle">Shuffle</button>
+    <button class="draw-button" @click="discard(topCard.id)">Draw</button>
   </div>
 </template>
 
@@ -108,10 +109,19 @@ export default {
 .shuffle-button {
   position: fixed;
   bottom: 5px;
-  left: 25vw;
+  right: 5vw;
   background: lightseagreen;
-  width: 50vw;
-  font-size: 3rem;
+  width: 40vw;
+  font-size: 2.5rem;
+  z-index: 200;
+}
+.draw-button {
+  position: fixed;
+  bottom: 5px;
+  left: 5vw;
+  background: lightseagreen;
+  width: 40vw;
+  font-size: 2.5rem;
   z-index: 200;
 }
 .cards-move {
