@@ -32,11 +32,38 @@ function shuffle(arrayToShuffle) {
   return array;
 }
 
+function getInitialDeck() {
+  return []
+    .concat(
+      Array(2).fill(
+        "Engines malfunction, spend one action to fix before moving again"
+      )
+    )
+    .concat(Array(2).fill("Move pirates in one orbit."))
+    .concat(Array(2).fill("Move pirates out one orbit."))
+    .concat(Array(2).fill("Move pirates clockwise."))
+    .concat(Array(2).fill("Move pirates counder-clockwise."))
+    .concat(Array(2).fill("Fuel subsidy, 2 for 1"))
+    .concat(Array(2).fill("Mining bonus, 2 for one action"))
+    .concat(Array(2).fill("Slingshot, boost orbit for 25% less"))
+    .concat(
+      Array(2).fill(
+        "Communications malfunction. no speaking until repair at station/home planet."
+      )
+    )
+    .concat(Array(2).fill("Fuel leak, lose one fuel"))
+    .concat(Array(2).fill("Navigation error, move clockwise one space"))
+    .concat(
+      Array(2).fill("Navigation error, move counter-clockwise one space")
+    );
+  // .concat(Array(2).fill(""))
+}
+
 export default {
   name: "deck",
   data() {
     return {
-      cards: ["zero", "one", "two", "three", "four"].map((s, i) => ({
+      cards: getInitialDeck().map((s, i) => ({
         msg: s,
         id: i
       })),
