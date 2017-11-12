@@ -87,7 +87,7 @@ export default {
   font-size: 3rem;
 }
 .cards-move {
-  transition: transform 1s;
+  transition: transform 0.5s;
 }
 .card {
   height: 80vw;
