@@ -112,6 +112,7 @@ export default {
   background: lightseagreen;
   width: 50vw;
   font-size: 3rem;
+  z-index: 200;
 }
 .cards-move {
   transition: transform 0.5s;
@@ -125,7 +126,7 @@ export default {
   margin: 5px;
   background: black;
   color: white;
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding: 3rem;
 }
 
