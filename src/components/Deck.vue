@@ -117,12 +117,14 @@ export default {
   transition: transform 0.5s;
 }
 .card {
-  height: 80vw;
-  width: 80vw;
+  height: 60vw;
+  width: 50vw;
   border: 1px solid black;
   border-radius: 5px;
   margin: 5px;
   background: wheat;
+  font-size: 2rem;
+  padding: 3rem;
 }
 
 .card-deck {
