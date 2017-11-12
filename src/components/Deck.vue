@@ -119,10 +119,12 @@ export default {
 .card {
   height: 60vw;
   width: 50vw;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 3px 1px 1px lightgrey;
   border-radius: 5px;
   margin: 5px;
-  background: wheat;
+  background: black;
+  color: white;
   font-size: 2rem;
   padding: 3rem;
 }
