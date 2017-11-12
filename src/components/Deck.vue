@@ -34,30 +34,38 @@ function shuffle(arrayToShuffle) {
 }
 
 function getInitialDeck() {
-  return []
-    .concat(
-      Array(2).fill(
-        "Engines malfunction, spend one action to fix before moving again"
-      )
-    )
-    .concat(Array(2).fill("Move pirates in one orbit."))
-    .concat(Array(2).fill("Move pirates out one orbit."))
-    .concat(Array(2).fill("Move pirates clockwise."))
-    .concat(Array(2).fill("Move pirates counder-clockwise."))
-    .concat(Array(2).fill("Fuel subsidy, 2 for 1"))
-    .concat(Array(2).fill("Mining bonus, 2 for one action"))
+  let cards = []
+    .concat(Array(3).fill("Move pirates in one orbit."))
+    .concat(Array(3).fill("Move pirates out one orbit."))
+    .concat(Array(6).fill("Move pirates clockwise."))
+    .concat(Array(6).fill("Move pirates counder-clockwise."))
+    .concat(Array(4).fill("Fuel subsidy, 2 for 1"))
+    .concat(Array(4).fill("Mining bonus, 2 for one action"))
     .concat(Array(2).fill("Slingshot, boost orbit for 25% less"))
+    .concat(Array(2).fill("Fuel leak, lose one fuel"))
+    .concat(Array(1).fill("Navigation error, move clockwise one space"))
+    .concat(Array(1).fill("Navigation error, move counter-clockwise one space"))
     .concat(
       Array(2).fill(
         "Communications malfunction. no speaking until repair at station/home planet."
       )
     )
-    .concat(Array(2).fill("Fuel leak, lose one fuel"))
-    .concat(Array(2).fill("Navigation error, move clockwise one space"))
     .concat(
-      Array(2).fill("Navigation error, move counter-clockwise one space")
+      Array(2).fill(
+        "Engineering equipment malfunction, spend one action to fix before building anything"
+      )
+    )
+    .concat(
+      Array(2).fill(
+        "Mining equipment malfunction, spend one action to fix before mining anything"
+      )
+    )
+    .concat(
+      Array(2).fill(
+        "Engines malfunction, spend one action to fix before moving again"
+      )
     );
-  // .concat(Array(2).fill(""))
+  return shuffle(cards);
 }
 
 export default {
@@ -93,8 +101,6 @@ export default {
   },
   methods: {
     shuffle() {
-      // debugger;
-      // console.log(shuffle([1, 2, 3]));
       this.discarded = [];
       this.cards = shuffle(this.cards);
     },
@@ -139,7 +145,7 @@ export default {
   margin: 5px;
   background: black;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding: 3rem;
 }
 
