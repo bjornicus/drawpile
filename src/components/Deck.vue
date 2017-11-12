@@ -100,6 +100,9 @@ export default {
     },
     discard: function(id) {
       this.discarded.push(id);
+      if (this.discarded.length == this.cards.length) {
+        this.shuffle();
+      }
     }
   }
 };
