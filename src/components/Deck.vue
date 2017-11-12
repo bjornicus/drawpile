@@ -1,14 +1,10 @@
 <template>
-  <div>
+  <div class="card-deck">
     <transition-group name="cards" tag="div">
-      <div class="stack-offset" v-for="(card, index) in futureCards" :key="card.id">
-        <div class="card stacked">
+        <v-touch v-on:swiperight="discard(topCard.id)" class="card stacked" :key="topCard.id" v-bind:style="topCard.styleObject">{{ topCard.msg }}</v-touch>
+        <div class="card stacked" v-for="(card, index) in futureCards" :key="card.id" v-bind:style="card.styleObject">
           {{ card.msg }}
         </div>
-      </div>
-      <div class="stack-offset" :key="topCard.id">
-        <v-touch v-on:swiperight="discard(topCard.id)" class="card stacked" :key="topCard.id">{{ topCard.msg }}</v-touch>
-      </div>
     </transition-group>
     <button class="shuffle-button" @click="shuffle">Shuffle</button>
   </div>
@@ -49,7 +45,16 @@ export default {
   },
   computed: {
     remaingCards() {
-      return this.cards.filter(c => !this.discarded.includes(c.id));
+      return this.cards
+        .filter(c => !this.discarded.includes(c.id))
+        .map((c, i) => ({
+          ...c,
+          styleObject: {
+            zIndex: 100 - i,
+            top: 4 * i + "px",
+            left: 2 * i + "px"
+          }
+        }));
     },
     topCard() {
       return this.remaingCards[0];
@@ -85,18 +90,19 @@ export default {
   transition: transform 1s;
 }
 .card {
-  height: 80px;
+  height: 80vw;
+  width: 80vw;
   border: 1px solid black;
   border-radius: 5px;
   margin: 5px;
   background: wheat;
 }
 
-.stack-offset {
-  height: 3px;
-}
-
-.stacked {
+.card-deck {
   position: relative;
+  margin: 5vw;
+}
+.stacked {
+  position: absolute;
 }
 </style>
