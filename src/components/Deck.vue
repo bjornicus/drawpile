@@ -46,25 +46,11 @@ function getInitialDeck() {
     .concat(Array(1).fill("Navigation error, move clockwise one space"))
     .concat(Array(1).fill("Navigation error, move counter-clockwise one space"))
     .concat(
-      Array(2).fill(
-        "Communications malfunction. no speaking until repair at station/home planet."
+      Array(4).fill(
+        "Equipment malfunction, spend one action to fix before using"
       )
     )
-    .concat(
-      Array(2).fill(
-        "Engineering equipment malfunction, spend one action to fix before building anything"
-      )
-    )
-    .concat(
-      Array(2).fill(
-        "Mining equipment malfunction, spend one action to fix before mining anything"
-      )
-    )
-    .concat(
-      Array(2).fill(
-        "Engines malfunction, spend one action to fix before moving again"
-      )
-    );
+    .concat(Array(2).fill("Engines malfunction, do not move this turn"));
   return shuffle(cards);
 }
 
@@ -119,7 +105,8 @@ export default {
   position: fixed;
   bottom: 5px;
   right: 5vw;
-  background: lightseagreen;
+  background: darkred;
+  color: white;
   width: 40vw;
   font-size: 2.5rem;
   z-index: 200;
@@ -128,7 +115,8 @@ export default {
   position: fixed;
   bottom: 5px;
   left: 5vw;
-  background: lightseagreen;
+  background: darkgreen;
+  color: white;
   width: 40vw;
   font-size: 2.5rem;
   z-index: 200;
