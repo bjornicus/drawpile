@@ -18,7 +18,7 @@ module.exports = {
     swPrecache: {
       autorequire: ['public/index.html'],
       options: {
-        // staticFileGlobs: ['public/**/!(*map*)'],
+        staticFileGlobs: ['public/**/!(*map*)'],
         stripPrefix: 'public/'
       }
     },
