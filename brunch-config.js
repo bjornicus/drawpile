@@ -11,8 +11,19 @@ module.exports = {
     }
   },
   plugins: {
+    // vue: {
+    //   extractCSS: true,
+    //   out: '../public/styles/components.css'
+    // },
     babel: {
-      presets: ['es2015']
+      plugins: ["transform-object-rest-spread"],
+      presets: [['env', {
+        targets: {
+          browsers: ['last 2 versions', 'safari >= 7']
+        }
+      }]]
     }
   }
 }
+module.exports.plugins.vue = module.exports.plugins.vue || {};
+module.exports.plugins.vue.babel = module.exports.plugins.babel || {};
