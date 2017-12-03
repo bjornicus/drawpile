@@ -16,7 +16,11 @@ module.exports = {
     //   out: '../public/styles/components.css'
     // },
     swPrecache: {
-      autorequire: ['app/assets/index.html']
+      autorequire: ['public/index.html'],
+      options: {
+        // staticFileGlobs: ['public/**/!(*map*)'],
+        stripPrefix: 'public/'
+      }
     },
     babel: {
       plugins: ["transform-object-rest-spread"],
