@@ -1,4 +1,8 @@
 module.exports = {
+  server: {
+    hostname: '0.0.0.0',
+    // port: 3333
+  },
   files: {
     javascripts: {
       joinTo: {
@@ -16,7 +20,7 @@ module.exports = {
     //   out: '../public/styles/components.css'
     // },
     swPrecache: {
-      autorequire: ['public/index.html'],
+      autorequire: ['app/assets/index.html'],
       options: {
         staticFileGlobs: ['public/**/!(*map*)'],
         stripPrefix: 'public/'
