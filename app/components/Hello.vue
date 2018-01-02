@@ -41,10 +41,8 @@ function getInitialDeck() {
     .concat(Array(6).fill("Move pirates counder-clockwise."))
     .concat(Array(4).fill("Fuel subsidy, 2 for 1"))
     .concat(Array(4).fill("Mining bonus, 2 for one action"))
-    .concat(Array(2).fill("Slingshot, boost orbit for 25% less"))
+    //.concat(Array(2).fill("Slingshot, boost orbit for 25% less"))
     .concat(Array(2).fill("Fuel leak, lose one fuel"))
-    .concat(Array(1).fill("Navigation error, move clockwise one space"))
-    .concat(Array(1).fill("Navigation error, move counter-clockwise one space"))
     .concat(
       Array(4).fill(
         "Equipment malfunction, spend one action to fix before using"
